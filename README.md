@@ -1,10 +1,35 @@
-"Can of Books" App
+# City Explorer
 
-This repository has starter code to begin work on creating your own online bookshelf.
+**Author**: Deshon Dixon
+**Version**: 1.0.0 
 
 ## What can books do?
 
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
+
+
+## Architecture
+
+
+## Change Log
+
+Name of feature: Back-End Build
+
+Estimate of time needed to complete: 
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
+
+## Credit, Collaborations, Attached Links
+
+Project Board: 
+Deployed Version:
+
+
 
 ## Logistical
 
