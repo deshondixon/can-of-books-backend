@@ -1,5 +1,5 @@
 {
-  "name": "auth0TestBack",
+  "name": "back-end-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
