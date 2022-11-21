@@ -31,7 +31,7 @@ async function seed() {
   });
 
   await Book.create({
-    title: 'Where the Wild Things aRE',
+    title: 'Where the Wild Things Are',
     description:
       'A story about a boy named Max who takes a journey into his imagination.',
     status: true,
