@@ -1,6 +1,6 @@
-# City Explorer
+# # Can of Books
 
-**Author**: Deshon Dixon
+**Author**: Deshon Dixon, 
 **Version**: 1.0.0 
 
 ## What can books do?
