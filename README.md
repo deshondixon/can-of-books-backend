@@ -1,4 +1,4 @@
-## Can of Books
+# Can of Books
 
 **Author**: Deshon Dixon, 
 **Version**: 1.0.0 
