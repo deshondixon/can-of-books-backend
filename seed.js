@@ -30,6 +30,13 @@ async function seed() {
     status: true,
   });
 
+  await Book.create({
+    title: 'Where the Wild Things aRE',
+    description:
+      'A story about a boy named Max who takes a journey into his imagination.',
+    status: true,
+  });
+
   console.log('Book was added to the database.');
 
   mongoose.disconnect();
