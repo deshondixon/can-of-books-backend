@@ -1,6 +1,6 @@
 # Can of Books
 
-**Author**: Deshon Dixon, 
+**Author**: Deshon Dixon, Don Choi
 **Version**: 1.0.0 
 
 ## What can books do?
