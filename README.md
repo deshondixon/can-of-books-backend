@@ -1,4 +1,4 @@
-# # Can of Books
+## Can of Books
 
 **Author**: Deshon Dixon, 
 **Version**: 1.0.0 
@@ -9,6 +9,9 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 
 
 ## Architecture
+
+
+## Estimates
 
 
 ## Change Log
