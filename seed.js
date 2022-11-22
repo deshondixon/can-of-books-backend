@@ -11,9 +11,10 @@ async function seed() {
     description: 'An epic saga that takes place in the past.',
     status: false,
   });
+
   myBook.save(function (err) {
     if (err) console.error(err);
-    else console.log('');
+    else console.log('first book added');
   });
 
   await Book.create({
@@ -22,6 +23,8 @@ async function seed() {
       'Brian is stranded in woods and must survive with only a Hatchet.',
     status: true,
   });
+  console.log('second book added');
+
 
   await Book.create({
     title: 'Flat Stanley',
@@ -29,6 +32,7 @@ async function seed() {
       'A kid that can turn flat and even be sent in the mail and go under doors.',
     status: true,
   });
+  console.log('third book added');
 
   await Book.create({
     title: 'Where the Wild Things Are',
@@ -36,8 +40,9 @@ async function seed() {
       'A story about a boy named Max who takes a journey into his imagination.',
     status: true,
   });
+  console.log('fourth book added');
 
-  console.log('Book was added to the database.');
+  console.log('Books added to the database.');
 
   mongoose.disconnect();
 }
