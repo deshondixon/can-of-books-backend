@@ -36,7 +36,7 @@ db.once('open', function () {
 
 mongoose.connect(process.env.DB_URL);
 
-async function getBooks(req, res, next) {
+async function getBooks(request, response, next) {
   try {
     let results = await Book.find();
     response.status(200).send(results);
