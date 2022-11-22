@@ -7,7 +7,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const Book = require('./models/books.js');
-const { response } = require('express');
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('Mongoose is connected');
+});
 
 const app = express();
 app.use(cors());
@@ -28,11 +33,7 @@ app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('Mongoose is connected');
-});
+
 
 mongoose.connect(process.env.DB_URL);
 
