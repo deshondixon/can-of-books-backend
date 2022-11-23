@@ -11,7 +11,7 @@ const Book = require('./models/books.js');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-  console.log('mongoose is connected');
+  console.log('mongoose is connected to the database >:D');
 });
 
 const app = express();
@@ -22,21 +22,20 @@ const PORT = process.env.PORT || 3002;
 
 app.get('/books', getBooks);
 app.post('/books', postBooks);
+app.put('/books/:id', putBooks);
 app.delete('/books/:id', deleteBooks);
 
 app.get('/', (request, response) => {
-  response.status(200).send('Welcome to server!');
+  response.status(200).send('Welcome to the Deshon and Don server!');
 });
 
 app.get('*', (request, response) => {
-  response.status(404).send('Not available');
+  response.status(404).send('im not available anymore <:(');
 });
 
 app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
-
-
 
 mongoose.connect(process.env.DB_URL);
 
@@ -54,8 +53,22 @@ async function postBooks(request, response, next) {
     console.log(request.body);
     let createdBook = await Book.create(request.body);
     console.log(createdBook);
-    response.send(createdBook);
-  } catch(error) {
+    response.status(200).send(createdBook);
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function putBooks(request, response, next) {
+  try {
+    let id = request.params.id;
+    let updatedBookData = request.body;
+    let updatedBook = await Book.findByIdAndUpdate(id, updatedBookData, {
+      new: true,
+      overwrites: true,
+    });
+    response.status(200).send(updatedBook);
+  } catch (error) {
     next(error);
   }
 }
@@ -64,11 +77,10 @@ async function deleteBooks(request, response, next) {
   try {
     console.log(request.params.id);
     await Book.findByIdAndDelete(request.params.id);
-    response.send('book deleted');
-  } catch(error) {
+    response.status(200).send('book is gone forever <:O');
+  } catch (error) {
     next(error);
   }
 }
-
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
