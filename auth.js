@@ -18,7 +18,7 @@ function getKey(header, callback) {
 
 function verifyUser(request, errorFirstOrUserCallbackFunction) {
   try {
-    const token = request.header.authorization.split(' ')[1];
+    const token = request.headers.authorization.split(' ')[1];
     console.log(token);
     jwt.verify(token, getKey, {}, errorFirstOrUserCallbackFunction);
   } catch(error) {
