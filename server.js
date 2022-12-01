@@ -7,7 +7,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const Book = require('./models/books.js');
-const verifyUser = require('./auth.js');
 // const { response } = require('express');
 
 const db = mongoose.connection;
@@ -42,19 +41,13 @@ app.use((error, request, response) => {
 mongoose.connect(process.env.DB_URL);
 
 async function getBooks(request, response, next) {
-  verifyUser(request, async (err, user) => {
-    if (err) {
-      console.log(err);
-      response.send('invalid token');
-    } else {
-      try {
-        let results = await Book.find();
-        response.status(200).send(results);
-      } catch (error) {
-        next(error);
-      }
-    }
-  });
+  try {
+    let results = await Book.find();
+    console.log(results);
+    response.status(200).send(results);
+  } catch (error) {
+    next(error);
+  }
 }
 
 async function postBooks(request, response, next) {
